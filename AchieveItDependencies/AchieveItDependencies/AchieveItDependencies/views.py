@@ -4,8 +4,8 @@ from rest_framework import viewsets, permissions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import Personnel, Customers
-from .serializers import PersonnelSerializer, CustomersSerializer
+from .models import Personnel, Customers, ProjectId, BusinessField
+from .serializers import PersonnelSerializer, CustomersSerializer, ProjectIdSerializer, BusinessFieldSerializer
 
 
 @api_view(['GET'])
@@ -75,3 +75,17 @@ def customers_by_name(request: HttpRequest):
         return Response(serializer.data)
     except:
         return Response([])
+
+
+@api_view(['GET'])
+def project_id_list_all(request: HttpRequest):
+    project_id = ProjectId.objects.all().order_by('project_id')
+    serializer = ProjectIdSerializer(project_id, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def business_field_list_all(request: HttpRequest):
+    business_field = BusinessField.objects.all().order_by('business_field_id')
+    serializer = BusinessFieldSerializer(business_field, many=True)
+    return Response(serializer.data)

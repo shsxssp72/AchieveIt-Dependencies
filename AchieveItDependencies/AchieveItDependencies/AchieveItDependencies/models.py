@@ -17,3 +17,12 @@ class Customers(models.Model):
     customer_email = models.CharField(max_length=255)
     customer_telephone = models.CharField(max_length=15)
     customer_address = models.CharField(max_length=255)
+
+
+class BusinessField(models.Model):
+    business_field_id = models.BigIntegerField(unique=True, primary_key=True)
+    business_field_description = models.CharField(max_length=255)
+
+
+class ProjectId(models.Model):
+    project_id = models.CharField(unique=True, primary_key=True, max_length=20)

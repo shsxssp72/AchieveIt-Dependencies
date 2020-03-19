@@ -27,3 +27,20 @@ class CustomersSerializer(HyperlinkedModelSerializer):
             'customer_telephone',
             'customer_address',
         ]
+
+
+class ProjectIdSerializer(HyperlinkedModelSerializer):
+    class Meta:
+        model = Customers
+        fields = [
+            'project_id',
+        ]
+
+
+class BusinessFieldSerializer(HyperlinkedModelSerializer):
+    class Meta:
+        model = Customers
+        fields = [
+            'business_field_id',
+            'business_field_description',
+        ]
