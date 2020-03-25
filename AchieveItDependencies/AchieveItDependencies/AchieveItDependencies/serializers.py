@@ -1,6 +1,6 @@
 from rest_framework.serializers import HyperlinkedModelSerializer
 
-from .models import Personnel, Customers
+from .models import Personnel, Customers, ProjectId, BusinessField
 
 
 class PersonnelSerializer(HyperlinkedModelSerializer):
@@ -31,7 +31,7 @@ class CustomersSerializer(HyperlinkedModelSerializer):
 
 class ProjectIdSerializer(HyperlinkedModelSerializer):
     class Meta:
-        model = Customers
+        model = ProjectId
         fields = [
             'project_id',
         ]
@@ -39,7 +39,7 @@ class ProjectIdSerializer(HyperlinkedModelSerializer):
 
 class BusinessFieldSerializer(HyperlinkedModelSerializer):
     class Meta:
-        model = Customers
+        model = BusinessField
         fields = [
             'business_field_id',
             'business_field_description',
