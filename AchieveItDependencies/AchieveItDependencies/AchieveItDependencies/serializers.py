@@ -1,9 +1,12 @@
 from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework import serializers
 
 from .models import Personnel, Customers, ProjectId, BusinessField
 
 
 class PersonnelSerializer(HyperlinkedModelSerializer):
+    user_id = serializers.CharField()
+
     class Meta:
         model = Personnel
         fields = [
@@ -16,6 +19,8 @@ class PersonnelSerializer(HyperlinkedModelSerializer):
 
 
 class CustomersSerializer(HyperlinkedModelSerializer):
+    referred_coordinator_id = serializers.CharField()
+
     class Meta:
         model = Customers
         fields = [
@@ -38,6 +43,8 @@ class ProjectIdSerializer(HyperlinkedModelSerializer):
 
 
 class BusinessFieldSerializer(HyperlinkedModelSerializer):
+    business_field_id = serializers.CharField()
+
     class Meta:
         model = BusinessField
         fields = [
