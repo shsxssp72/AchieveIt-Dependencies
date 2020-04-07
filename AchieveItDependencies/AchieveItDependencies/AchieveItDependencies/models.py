@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Personnel(models.Model):
-    user_id = models.BigIntegerField(unique=True, primary_key=True)
+    user_id = models.CharField(max_length=25, unique=True, primary_key=True)
     user_name = models.CharField(max_length=50)
     user_email = models.CharField(max_length=255)
     user_department = models.CharField(max_length=50)
@@ -11,7 +11,7 @@ class Personnel(models.Model):
 
 class Customers(models.Model):
     customer_id = models.CharField(max_length=15, primary_key=True)
-    referred_coordinator_id = models.BigIntegerField()
+    referred_coordinator_id = models.CharField(max_length=25)
     corporation_name = models.CharField(max_length=255)
     customer_level = models.CharField(max_length=10)
     customer_email = models.CharField(max_length=255)
